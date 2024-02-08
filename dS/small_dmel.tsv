@@ -1,0 +1,5 @@
+Busco id	Status	Sequence	Gene Start	Gene End	Strand	Score	Length	OrthoDB url	Description
+20at7147	Complete	CM034723.1:750085-799918	750085	799918	+	11751.0	7151	https://www.orthodb.org/v10?query=20at7147	Immunoglobulin-like domain
+29at7147	Complete	CM034720.1:9046276-9071132	9046276	9071132	+	9097.5	4265	https://www.orthodb.org/v10?query=29at7147	Ryanodine receptor
+51at7147	Complete	CM034721.1:4944237-4926315	4944237	4926315	-	7903.4	3758	https://www.orthodb.org/v10?query=51at7147	Dynein heavy chain
+80at7147	Complete	CM034722.1:30098528-30130403	30098528	30130403	+	7131.7	4009	https://www.orthodb.org/v10?query=80at7147	Dynein heavy chain

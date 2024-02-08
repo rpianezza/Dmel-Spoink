@@ -1,0 +1,5 @@
+Busco id	Status	Sequence	Gene Start	Gene End	Strand	Score	Length	OrthoDB url	Description
+20at7147	Complete	JAEIGE010000332.1:32015976-31971203	32015976	31971203	-	12018.1	7443	https://www.orthodb.org/v10?query=20at7147	Immunoglobulin-like domain
+29at7147	Complete	JAEIGE010000213.1:4541609-4565150	4541609	4565150	+	9092.3	4263	https://www.orthodb.org/v10?query=29at7147	Ryanodine receptor
+51at7147	Complete	JAEIGE010000002.1:1042132-1024277	1042132	1024277	-	8492.4	3983	https://www.orthodb.org/v10?query=51at7147	Dynein heavy chain
+80at7147	Complete	JAEIGE010000332.1:13645663-13678222	13645663	13678222	+	7257.8	4080	https://www.orthodb.org/v10?query=80at7147	Dynein heavy chain
