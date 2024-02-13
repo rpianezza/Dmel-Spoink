@@ -1,0 +1,75 @@
+Gonzalez - analysis (MCTE)
+================
+roko
+9/8/2023
+
+**Pop-freq**
+
+``` r
+library(tidyverse)
+```
+
+    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+
+    ## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+    ## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
+    ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+    ## ✔ readr   2.1.2     ✔ forcats 0.5.1
+
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ✖ dplyr::filter() masks stats::filter()
+    ## ✖ dplyr::lag()    masks stats::lag()
+
+``` r
+theme_set(theme_bw())
+
+boundary<-data.frame(div=rep(-1,12),fraclen=rep(1,12),length=rep(1000,12),freq=rep(1,12),popfreq=rep(-0.1,12),
+                     contig=c("X","X","2L","2L","2R","2R","3L","3L","3R","3R","4","4"),
+                     start=c(1,21975285,1,22510348,1,21632781,1,24592382,1,25812719,1,1341466),
+                     end=rep(-1,12))
+
+
+
+chrlen<-list("X"=21975285,"2L"=22510348,"2R"=21632781,"3L"=24592382,"3R"=25812719,"4"=1341466)
+rc<-function(trc,c){
+  clen<-chrlen[[c]]
+  trc[trc$contig==c,]$start<-clen-trc[trc$contig==c,]$start+1
+  return(trc)
+}
+
+
+h<-read.table("/Users/rokofler/analysis/2023-Spoink/Dmel-Spoink/2024-02-Popfreq/ral-popfreq.txt",header=F)
+names(h)<-c("contig","start","end","freq","div","length")
+h$popfreq<-h$freq/8
+
+h$fraclen<-h$length/5216
+
+keeporder<-c("X","2L","2R", "3L","3R","4")
+h<-subset(h,contig %in% keeporder)
+h$contig<-recode_factor(h$contig,X="X","2L"="2L","2R"="2R", "3L"="3L","3R"="3R","4"="4")
+
+h<-rbind(h,boundary)
+
+
+t2<-ggplot()+geom_point(data=h,aes(x=start,y=popfreq,color=div),size=2.3,alpha=0.65,shape=16)+facet_grid(.~contig, scales="free_x", space = "free_x")+ylim(0,1)+scale_x_continuous(breaks=c(0,10000000,20000000),labels=c("0","10m","20m"))+ylab("population frequency [%]")+
+  scale_colour_gradient(high="red",low="yellow")
+plot(t2)
+```
+
+    ## Warning: Removed 12 rows containing missing values (geom_point).
+
+![](01-plotpopfreq_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+``` r
+pdf("/Users/rokofler/analysis/2023-Spoink/Dmel-Spoink/2024-02-Popfreq/popfreq-rev.pdf",width=7,height=2)
+plot(t2)
+```
+
+    ## Warning: Removed 12 rows containing missing values (geom_point).
+
+``` r
+dev.off()
+```
+
+    ## quartz_off_screen 
+    ##                 2

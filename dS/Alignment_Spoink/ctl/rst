@@ -1,0 +1,8 @@
+Supplemental results for CODEML (seqf: /Users/ascarpa/Downloads/Spoink_revision/Alignment_Spoink/Spoink_codon.fa  treef: )
+	1
+
+pairwise comparison (Goldman & Yang 1994)
+seq seq        N       S       dN       dS     dN/dS   Paras.
+  2   1   1087.6    316.4   0.0009   0.0135   0.0680   0.0113   1.7204   0.0680 -1896.129
+
+	2
